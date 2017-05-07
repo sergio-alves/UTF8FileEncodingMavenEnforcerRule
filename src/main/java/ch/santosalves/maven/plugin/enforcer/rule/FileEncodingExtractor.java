@@ -26,7 +26,8 @@ public class FileEncodingExtractor implements Callable<FileInformation> {
 	@Override
 	public FileInformation call() throws Exception {
 		byte[] buf = new byte[4096];
-
+		
+		//code copied from the juniversalchardet 
 		try (FileInputStream fis = new java.io.FileInputStream(this.file)) {
 			// (1)
 			UniversalDetector detector = new UniversalDetector(null);

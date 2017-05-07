@@ -19,23 +19,38 @@ import org.apache.maven.enforcer.rule.api.EnforcerRuleHelper;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluationException;
 
+/**
+ * This class, will checks that all files in a given folder are UTF-8 
+ * @author salves
+ *
+ */
 public class UTF8EncodingEnforcerRule implements EnforcerRule {
-
-	private String dirToScan = "./src/main/java/";
+	
 	/**
-	 * For each file : - read all and store the name, size, last-modification,
-	 * @throws IOException 
+	 * The directory to scan, in a maven project src/main/java/
 	 */
+	private String dirToScan;
 
-	private List<Path> getFiles(Path path) {
+	/**
+	 * Lists recursively the files in a root folder. Only files are returned
+	 * @param path The root path
+	 * @return a List of paths
+	 */
+	protected List<Path> getFiles(Path path) {
+		//formatter:off
 		try {
-			return Files.list(path).parallel().flatMap(x -> x.toFile().isFile() ? Arrays.asList(x).stream() : getFiles(x).stream()).collect(Collectors.toList());
+			return Files
+					.list(path)
+					.parallel()
+					.flatMap(x -> x.toFile().isFile() ? Arrays.asList(x).stream() : getFiles(x).stream())
+					.collect(Collectors.toList());
 		} catch (IOException e) {
 			return new ArrayList<>();
 		}
+		//formatter:on
 	}
 
-
+	@Override
 	public void execute(EnforcerRuleHelper arg0) throws EnforcerRuleException {
 		try {
 			ExecutorService pool = Executors.newCachedThreadPool();
@@ -73,18 +88,18 @@ public class UTF8EncodingEnforcerRule implements EnforcerRule {
 		}
 	}
 
+	@Override
 	public String getCacheId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.dirToScan;
 	}
 
+	@Override
 	public boolean isCacheable() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
+	@Override
 	public boolean isResultValid(EnforcerRule arg0) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
