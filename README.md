@@ -11,7 +11,7 @@ How to used it? Copy this block into your plugins section of your pom.
 	        <dependency>
 	            <groupId>ch.santosalves.maven.plugin.enforcer.rule</groupId>
 	            <artifactId>files-must-match-encoding</artifactId>
-	            <version>0.0.1-SNAPSHOT</version>
+	            <version>0.0.1</version>
 	        </dependency>
 	    </dependencies>
 	    <executions>
