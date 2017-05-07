@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.santosalves.maven.plugin.enforcer.rule</groupId>
     <artifactId>files-must-match-encoding</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <properties>
         <api.version>1.4.1</api.version>
@@ -60,7 +59,8 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/sergio-alves/file-encoding-maven-enforcer-rule.git</developerConnection>
-    </scm>
+      <tag>v0.0.1</tag>
+  </scm>
 
     <build>
         <plugins>
