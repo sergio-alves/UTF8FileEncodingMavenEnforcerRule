@@ -2,7 +2,7 @@
 
 How to used it? Copy this block into your plugins section of your pom.
 
-	<!-- The maven enforcer plugin to p*** people off :-) -->
+	<!-- The maven enforcer plugin -->
 	<plugin>
 	    <groupId>org.apache.maven.plugins</groupId>
 	    <artifactId>maven-enforcer-plugin</artifactId>
